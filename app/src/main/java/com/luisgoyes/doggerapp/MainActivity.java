@@ -1,5 +1,7 @@
 package com.luisgoyes.doggerapp;
 
+import android.app.FragmentManager;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -12,8 +14,9 @@ public class MainActivity extends ActionBarActivity {
     private final boolean[] opcionPrincipal = {false, false, false, false, true, true, true};
     private boolean[] opcion = opcionPrincipal;
     private static BaseDeDatos dataBase = new BaseDeDatos();
-
     private static String dogger_marker_tag = ((Integer)(R.mipmap.ic_dogger_marker)).toString();
+
+    public static FragmentManager fragmentManager;
 
     private F_mapa f2;
 
@@ -21,9 +24,9 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        fragmentManager=getFragmentManager();
         getWindow().getDecorView().setBackgroundColor(Color.BLACK);
         opcion = opcionPrincipal;
-
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         ImageAdapter adapter = new ImageAdapter(this);
         viewPager.setAdapter(adapter);

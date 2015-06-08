@@ -1,12 +1,15 @@
 package com.luisgoyes.doggerapp;
 
 
+import android.app.FragmentManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -17,23 +20,44 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.LinkedList;
 
-public class F_mapa extends Fragment{
-    static final LatLng HAMBURG = new LatLng(53.558, 9.927);
-    static final LatLng KIEL = new LatLng(53.551, 9.993);
-    private GoogleMap map;
+public class F_mapa extends Fragment {
+    private static GoogleMap map;
     LinkedList<Marker> markers = new LinkedList<Marker>();
+    private GoogleApiClient mGoogleApiClient;
+    public static final String TAG = MainActivity.class.getSimpleName();
+    static double la, lo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_mapa, null, false);
-        map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-        // Move the camera instantly to hamburg with a zoom of 15.
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(HAMBURG, 15));
-        // Zoom in, animating the camera.
-        map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
+        setUpMapIfNeeded();
+        map.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
+            @Override
+            public void onMyLocationChange(Location arg0) {
+                la = arg0.getLatitude();
+                lo = arg0.getLongitude();
+            }
+        });
         return v;
     }
 
+    public static void setUpMapIfNeeded() {
+        if (map == null) {
+            // Try to obtain the map from the MapFragment.
+            map = ((MapFragment) MainActivity.fragmentManager.findFragmentById(R.id.map)).getMap();
+            // Check if we were successful in obtaining the map.
+            if (map != null)
+                setUpMap();
+        }
+    }
+
+    private static void setUpMap() {
+        // For showing a move to my location button
+        map.setMyLocationEnabled(true);
+        // Move the camera instantly to current location
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(la,lo), 14));
+    }
+    
     @Override
     public void onPause() {
         if (map != null) {
