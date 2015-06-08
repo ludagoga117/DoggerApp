@@ -10,5 +10,5 @@
     <string name="sAdd">Add</string>
     <string name="sEdit">Edit</string>
     <string name="sRemove">Remove</string>
-
+    <string name="sRefresh">Refresh</string>
 </resources>

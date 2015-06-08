@@ -8,19 +8,21 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends ActionBarActivity {
-    private final boolean[] opcionPrincipal = {false, false, false, false, true, true};
-    private final boolean[] opcionMapa = {true, true, true, true, false, true};
+    private final boolean[] opcionPrincipal = {false, false, false, false, true, true, true};
     private boolean[] opcion = opcionPrincipal;
-    //private static BaseDeDatos dataBase = new BaseDeDatos();
+    private static BaseDeDatos dataBase = new BaseDeDatos();
 
     private static String dogger_marker_tag = ((Integer)(R.mipmap.ic_dogger_marker)).toString();
+
+    private PagerHolder f1;
+    private F_mapa f2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getWindow().getDecorView().setBackgroundColor(Color.BLACK);
-        PagerHolder f1 = new PagerHolder();
+        f1 = new PagerHolder();
         getFragmentManager().beginTransaction().add(android.R.id.content, f1).commit();
         opcion = opcionPrincipal;
 /*
@@ -30,9 +32,9 @@ public class MainActivity extends ActionBarActivity {
 */
     }
 
-    //public static BaseDeDatos getMasterDataBase(){
-    //    return dataBase;
-    //}
+    public static BaseDeDatos getMasterDataBase(){
+        return dataBase;
+    }
 
     public static String getDogger_marker_tag(){
         return dogger_marker_tag;
@@ -43,8 +45,10 @@ public class MainActivity extends ActionBarActivity {
         super.onResume();
         if(opcion[0]==false){
             PrincipalMenuItem();
+            actualizarMenu(R.id.iPrincipal);
         }else if(opcion[4]==false){
             MapaMenuItem();
+            actualizarMenu(R.id.iMap);
         }
     }
 
@@ -57,7 +61,8 @@ public class MainActivity extends ActionBarActivity {
         menu.findItem(R.id.iEdit).setVisible(opcion[2]);
         menu.findItem(R.id.iRemove).setVisible(opcion[3]);
         menu.findItem(R.id.iMap).setVisible(opcion[4]);
-        menu.findItem(R.id.iAbout).setVisible(opcion[5]);
+        menu.findItem(R.id.iRefresh).setVisible(opcion[5]);
+        menu.findItem(R.id.iAbout).setVisible(opcion[6]);
         return true;
     }
 
@@ -79,7 +84,11 @@ public class MainActivity extends ActionBarActivity {
             case R.id.iMap:
                 MapaMenuItem();
                 break;
+            case R.id.iRefresh:
+                RefreshMenuItem();
+                break;
             case R.id.iAbout:
+                AboutMenuItem();
                 break;
         }
         actualizarMenu(item.getItemId());
@@ -94,7 +103,8 @@ public class MainActivity extends ActionBarActivity {
                 opcion[2]=false;
                 opcion[3]=false;
                 opcion[4]=true;
-                opcion[5]=true;
+                opcion[5]=false;
+                opcion[6]=true;
                 break;
             case R.id.iAdd:
             case R.id.iEdit:
@@ -102,40 +112,55 @@ public class MainActivity extends ActionBarActivity {
             case R.id.iMap:
                 opcion[0]=true;
                 opcion[1]=true;
-                //if(dataBase.isEmpty()==true) {
+                if(dataBase.isEmpty()==true) {
                     opcion[2] = false;
                     opcion[3] = false;
-                //}else{
+                    opcion[5] = false;
+                }else{
                     opcion[2]=true;
                     opcion[3]=true;
-                //}
+                    opcion[5]=true;
+                }
                 opcion[4]=false;
-                opcion[5]=true;
+                opcion[6]=true;
                 break;
         }
         invalidateOptionsMenu();
     }
 
     private void PrincipalMenuItem(){
-        PagerHolder f2 = new PagerHolder();
-        getFragmentManager().beginTransaction().replace(android.R.id.content, f2).commit();
+        f1 = new PagerHolder();
+        getFragmentManager().beginTransaction().replace(android.R.id.content, f1).commit();
     }
 
     private void MapaMenuItem(){
-        F_mapa f3 = new F_mapa();
-        getFragmentManager().beginTransaction().replace(android.R.id.content, f3).commit();
+        f2 = new F_mapa();
+        getFragmentManager().beginTransaction().replace(android.R.id.content, f2).commit();
+        
     }
 
-    private void AddMenuItem(){
-        //dataBase.add(53.551,9.993,"Kiel","Kiel is cool",dogger_marker_tag);
-        //dataBase.add(53.558, 9.927, "Hamburg", null, dogger_marker_tag);
+    private void AddMenuItem() {
+        dataBase.add(53.551, 9.993, "Kiel", "Kiel is cool",dogger_marker_tag);
+        f2.clearMap();
+        f2.updateMapMarkers();
     }
 
     private void EditMenuItem() {
-
+        dataBase.add(53.558, 9.927, "Hamburg",null,dogger_marker_tag);
+        f2.clearMap();
+        f2.updateMapMarkers();
     }
 
     private void RemoveMenuItem(){
+        dataBase.remove(0);
+        f2.clearMap();
+        f2.updateMapMarkers();
+    }
 
+    private void RefreshMenuItem(){
+        f2.updateMapMarkers();
+    }
+
+    private void AboutMenuItem(){
     }
 }

@@ -27,8 +27,6 @@ public class F_mapa extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_mapa, null, false);
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-        addMarker(53.551,9.993,"Kiel","Kiel is cool",null);
-        addMarker(53.558,9.927,"Hamburg",null,MainActivity.getDogger_marker_tag());
         // Move the camera instantly to hamburg with a zoom of 15.
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(HAMBURG, 15));
         // Zoom in, animating the camera.
@@ -48,6 +46,7 @@ public class F_mapa extends Fragment{
                 markers.remove(i);
             }
         }
+        //MainActivity.getMasterDataBase().clear();
         super.onPause();
     }
 
@@ -62,23 +61,28 @@ public class F_mapa extends Fragment{
             markers.add(map.addMarker(new MarkerOptions().position(new LatLng(latitude, logitude)).title(nome).snippet(subnome).icon(BitmapDescriptorFactory.fromResource(Integer.parseInt(icon)))));
         }
     }
-/*
-    private void updateMapMarkers(){
+
+    public void updateMapMarkers(){
         if(markers.isEmpty()==false){
             for( int i = 0; i < markers.size(); i++){
                 markers.get(i).remove();
                 markers.remove(i);
             }
         }
-        for(int i=0; i < MainActivity.getMasterDataBase().size(); i++){
-            addMarker(
-                    MainActivity.getMasterDataBase().get(i).getLat(),
-                    MainActivity.getMasterDataBase().get(i).getLon(),
-                    MainActivity.getMasterDataBase().get(i).getNome(),
-                    MainActivity.getMasterDataBase().get(i).getSubnome(),
-                    MainActivity.getMasterDataBase().get(i).getIcon()
-            );
+        if(MainActivity.getMasterDataBase().isEmpty()==false) {
+            for (int i = 0; i < MainActivity.getMasterDataBase().size(); i++) {
+                addMarker(
+                        MainActivity.getMasterDataBase().get(i).getLatitude(),
+                        MainActivity.getMasterDataBase().get(i).getLogitude(),
+                        MainActivity.getMasterDataBase().get(i).getNome(),
+                        MainActivity.getMasterDataBase().get(i).getSubnome(),
+                        MainActivity.getMasterDataBase().get(i).getIcon()
+                );
+            }
         }
     }
-*/
+
+    public void clearMap(){
+        map.clear();
+    }
 }

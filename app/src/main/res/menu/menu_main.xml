@@ -6,7 +6,7 @@
         android:id="@+id/iPrincipal"
         android:title="@string/sPrincipal"
         android:orderInCategory="0"
-        app:showAsAction="ifRoom|withText"
+        app:showAsAction="always|withText"
         android:icon="@drawable/ic_action_back"
         />
 
@@ -14,7 +14,7 @@
         android:id="@+id/iAdd"
         android:title="@string/sAdd"
         android:orderInCategory="1"
-        app:showAsAction="ifRoom|withText"
+        app:showAsAction="ifRoom"
         android:icon="@drawable/ic_action_new"
         />
 
@@ -22,7 +22,7 @@
         android:id="@+id/iEdit"
         android:title="@string/sEdit"
         android:orderInCategory="2"
-        app:showAsAction="ifRoom|withText"
+        app:showAsAction="ifRoom"
         android:icon="@drawable/ic_action_edit"
         />
 
@@ -30,7 +30,7 @@
         android:id="@+id/iRemove"
         android:title="@string/sRemove"
         android:orderInCategory="3"
-        app:showAsAction="ifRoom|withText"
+        app:showAsAction="ifRoom"
         android:icon="@drawable/ic_action_discard"
         />
 
@@ -38,8 +38,16 @@
         android:id="@+id/iMap"
         android:title="@string/sMap"
         android:orderInCategory="4"
-        app:showAsAction="ifRoom|withText"
+        app:showAsAction="always|withText"
         android:icon="@drawable/ic_action_place"
+        />
+
+    <item
+        android:id="@+id/iRefresh"
+        android:title="@string/sRefresh"
+        android:orderInCategory="5"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_action_refresh"
         />
 
     <item
