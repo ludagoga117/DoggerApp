@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-public class ImageAdapter extends PagerAdapter{
+public class ImageAdapter extends PagerAdapter {
     Context context;
     private int[] GalImages = new int[] {
             R.drawable.im0,
@@ -36,9 +36,10 @@ public class ImageAdapter extends PagerAdapter{
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         ImageView imageView = new ImageView(context);
-        int padding = context.getResources().getDimensionPixelSize(R.dimen.padding_medium);
+        //int padding = context.getResources().getDimensionPixelSize(R.dimen.padding_medium);
+        int padding = 0;
         imageView.setPadding(padding, padding, padding, padding);
-        imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
         imageView.setImageResource(GalImages[position]);
         ((ViewPager) container).addView(imageView, 0);
         return imageView;

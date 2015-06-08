@@ -17,8 +17,9 @@ public class SplashActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);//will hide the title not the title bar
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);//will hide the title not the title bar
+
         setContentView(R.layout.activity_splash);
         TimerTask task = new TimerTask(){
             public void run(){

@@ -6,7 +6,16 @@
         android:id="@+id/iPrincipal"
         android:title="@string/sPrincipal"
         android:orderInCategory="0"
-        app:showAsAction="never"
+        app:showAsAction="ifRoom|withText"
+        android:icon="@drawable/ic_action_back"
+        />
+
+    <item
+        android:id="@+id/iMap"
+        android:title="@string/sMap"
+        android:orderInCategory="0"
+        app:showAsAction="ifRoom|withText"
+        android:icon="@drawable/ic_action_place"
         />
 
     <item

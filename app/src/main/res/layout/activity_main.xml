@@ -6,9 +6,17 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <TextView
+        style="@style/textView.Titulo"
+        android:text="@string/sDogger"/>
+
+    <TextView
+        style="@style/textView.Titulo.Subtitulo"
+        android:text="@string/sSlogan"/>
+
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">Dogger</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
     <string name="sAbout">About</string>
     <string name="sPrincipal">Home</string>
+    <string name="sMap">Map</string>
+
+    <string name="sDogger">Dogger</string>
+    <string name="sSlogan">The real american taste</string>
 
 </resources>
