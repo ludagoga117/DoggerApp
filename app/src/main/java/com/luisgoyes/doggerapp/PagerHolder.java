@@ -16,7 +16,6 @@ public class PagerHolder extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_pager_holder, container, false);
-//        pager = (ViewPager) rootView.findViewById(R.id.view_pager);
         return rootView;
     }
 

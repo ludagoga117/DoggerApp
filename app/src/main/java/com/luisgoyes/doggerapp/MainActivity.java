@@ -2,6 +2,7 @@ package com.luisgoyes.doggerapp;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,7 +15,6 @@ public class MainActivity extends ActionBarActivity {
 
     private static String dogger_marker_tag = ((Integer)(R.mipmap.ic_dogger_marker)).toString();
 
-    private PagerHolder f1;
     private F_mapa f2;
 
     @Override
@@ -22,14 +22,12 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getWindow().getDecorView().setBackgroundColor(Color.BLACK);
-        f1 = new PagerHolder();
-        getFragmentManager().beginTransaction().add(android.R.id.content, f1).commit();
         opcion = opcionPrincipal;
-/*
+
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         ImageAdapter adapter = new ImageAdapter(this);
         viewPager.setAdapter(adapter);
-*/
+
     }
 
     public static BaseDeDatos getMasterDataBase(){
@@ -129,14 +127,15 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void PrincipalMenuItem(){
-        f1 = new PagerHolder();
-        getFragmentManager().beginTransaction().replace(android.R.id.content, f1).commit();
+        if(f2!=null) {
+            getFragmentManager().beginTransaction().remove(f2).commit();
+        }
     }
 
     private void MapaMenuItem(){
         f2 = new F_mapa();
         getFragmentManager().beginTransaction().replace(android.R.id.content, f2).commit();
-        
+
     }
 
     private void AddMenuItem() {
