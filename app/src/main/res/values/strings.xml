@@ -31,5 +31,8 @@
     <string name="tRefresh">Map successfully Reloaded!</string>
     <string name="sRemoveTitulo">Remove Franchises</string>
     <string name="tRemoveSuccess">Franchise successfully removed. Please, reload map</string>
+    <string name="sEditTitulo">Edit Franchises</string>
+    <string name="sEditFTitulo">Edit Franchise</string>
+    <string name="tEditSuccess">Franchise Successfully Edited</string>
 
 </resources>

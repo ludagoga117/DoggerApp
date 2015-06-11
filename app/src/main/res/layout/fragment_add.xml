@@ -10,7 +10,8 @@
     <!-- Titulo -->
     <TextView
         style="@style/DataBase.Titulo"
-        android:text="@string/sAddTitulo"/>
+        android:text="@string/sAddTitulo"
+        android:id="@+id/tvAddTitulo"/>
 
     <!-- Nombre de la franquicia -->
     <LinearLayout
@@ -77,7 +78,8 @@
         <Button
             style="@style/DataBase.add.button"
             android:text="@string/sAdd"
-            android:onClick="addNew"/>
+            android:onClick="addNew"
+            android:id="@+id/ButtonAddAcept"/>
         <!-- Espacio en blanco -->
         <LinearLayout
             android:layout_width="0dp"
@@ -89,7 +91,8 @@
         <Button
             style="@style/DataBase.add.button"
             android:text="@string/sCancel"
-            android:onClick="addCancel"/>
+            android:onClick="addCancel"
+            android:id="@+id/ButtonAddCancel"/>
         <!-- Espacio en blanco -->
         <LinearLayout
             android:layout_width="0dp"

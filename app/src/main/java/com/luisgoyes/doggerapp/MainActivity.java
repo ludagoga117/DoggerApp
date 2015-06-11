@@ -22,11 +22,12 @@ public class MainActivity extends ActionBarActivity {
     private boolean[] opcion = opcionPrincipal;
     private static BaseDeDatos dataBase = new BaseDeDatos();
     private static String dogger_marker_tag = ((Integer)(R.mipmap.ic_dogger_marker)).toString();
-    private State s;
+    public State s;
     public static FragmentManager fragmentManager;
     private F_mapa f2;
     private Add f3;
     private Remove f4;
+    private Edit f5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -183,7 +184,8 @@ public class MainActivity extends ActionBarActivity {
 
     private void EditMenuItem() {
         s = State.EDIT;
-        //dataBase.add(53.558, 9.927, "Hamburg",null,dogger_marker_tag);
+        f5 = new Edit();
+        getFragmentManager().beginTransaction().replace(android.R.id.content, f5).commit();
         f2.clearMap();
         f2.updateMapMarkers();
     }
@@ -192,7 +194,6 @@ public class MainActivity extends ActionBarActivity {
         s = State.REMOVE;
         f4 = new Remove();
         getFragmentManager().beginTransaction().replace(android.R.id.content, f4).commit();
-
         f2.clearMap();
         f2.updateMapMarkers();
     }
@@ -213,13 +214,12 @@ public class MainActivity extends ActionBarActivity {
                 }).show();
     }
 
-    private enum State {
+    public enum State {
         HOME, ADD, EDIT, REMOVE, MAP
     }
 
     @Override
     public void onBackPressed() {
-        //super.onBackPressed();
         switch(s){
             case HOME:
                 super.onBackPressed();
@@ -267,8 +267,7 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    public void addCancel ( View view ){
+    public void addCancel ( View view ) {
         onBackPressed();
     }
-
 }

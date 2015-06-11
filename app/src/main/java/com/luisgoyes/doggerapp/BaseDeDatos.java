@@ -27,6 +27,14 @@ public class BaseDeDatos {
             return false;
         }
     }
+    public boolean replace(int index, double latitude, double logitude, String nome, String subnome, String icon) {
+        if((index>=0)&&(index<markers.size())) {
+            markers.remove(index);
+            markers.add(index, new Marcador(latitude, logitude, nome, subnome, icon));
+            return true;
+        }else
+            return false;
+    }
     public boolean searchByLocation(double latitude, double longitud){
         for(int i = 0; i<markers.size(); i++){
             if((markers.get(i).getLatitude()==latitude)&&(markers.get(i).getLogitude()==longitud)){
@@ -37,6 +45,26 @@ public class BaseDeDatos {
     }
     public boolean searchByName(String nome){
         for(int i = 0; i<markers.size(); i++){
+            if((markers.get(i).getNome().compareTo(nome))==0){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean searchByLocation(double latitude, double longitud, int ID){
+        for(int i = 0; i<markers.size(); i++){
+            if(i==ID)
+                continue;
+            if((markers.get(i).getLatitude()==latitude)&&(markers.get(i).getLogitude()==longitud)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean searchByName(String nome, int ID){
+        for(int i = 0; i<markers.size(); i++){
+            if(i==ID)
+                continue;
             if((markers.get(i).getNome().compareTo(nome))==0){
                 return true;
             }

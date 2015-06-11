@@ -1,0 +1,66 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.luisgoyes.doggerapp.Edit"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/radiobuttonsLayout">
+
+        <!-- Titulo -->
+        <TextView
+            style="@style/DataBase.Titulo"
+            android:text="@string/sEditTitulo"/>
+
+        <!-- RadioGroup -->
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/radiobuttonsGroup" />
+
+        <!-- Botones -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!-- Espacio en blanco -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+            </LinearLayout>
+            <!-- Botón de aceptar -->
+            <Button
+                style="@style/DataBase.add.button"
+                android:text="@string/sEdit"
+                android:id="@+id/EditEdit"/>
+            <!-- Espacio en blanco -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+            </LinearLayout>
+            <!-- Botón de cancelar -->
+            <Button
+                style="@style/DataBase.add.button"
+                android:text="@string/sCancel"
+                android:id="@+id/EditCancel"/>
+            <!-- Espacio en blanco -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
