@@ -108,6 +108,8 @@ public class MainActivity extends ActionBarActivity {
             case R.id.iAbout:
                 AboutMenuItem();
                 break;
+            default:
+                break;
         }
         actualizarMenu(item.getItemId());
         return super.onOptionsItemSelected(item);
@@ -197,7 +199,7 @@ public class MainActivity extends ActionBarActivity {
 
     private void RefreshMenuItem(){
         f2.updateMapMarkers();
-        Toast.makeText(getApplicationContext(),getResources().getString(R.string.tRefresh),Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), getResources().getString(R.string.tRefresh), Toast.LENGTH_SHORT).show();
     }
 
     private void AboutMenuItem(){

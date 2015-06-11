@@ -30,5 +30,6 @@
     <string name="tAddSuccess">Franchise successfully added. Please, reload map</string>
     <string name="tRefresh">Map successfully Reloaded!</string>
     <string name="sRemoveTitulo">Remove Franchises</string>
+    <string name="tRemoveSuccess">Franchise successfully removed. Please, reload map</string>
 
 </resources>
