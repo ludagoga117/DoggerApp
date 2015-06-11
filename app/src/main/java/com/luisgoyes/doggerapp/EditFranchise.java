@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class EditFranchise extends Fragment {
@@ -26,10 +27,13 @@ public class EditFranchise extends Fragment {
         EditText EditFLongitude = (EditText) rootView.findViewById(R.id.AddLongitude);
         Button bEditFranchise = (Button) rootView.findViewById(R.id.ButtonAddAcept);
         Button bEditFranchiseCancel = (Button) rootView.findViewById(R.id.ButtonAddCancel);
+        TextView t1 = (TextView) rootView.findViewById(R.id.tvAddTitulo);
+
+
         EditFNome.setText(MainActivity.getMasterDataBase().get(ID).getNome());
         EditFLatitude.setText(((Double)MainActivity.getMasterDataBase().get(ID).getLatitude()).toString());
         EditFLongitude.setText(((Double)MainActivity.getMasterDataBase().get(ID).getLogitude()).toString());
-
+        t1.setText(getResources().getString(R.string.sEditFTitulo));
 
         bEditFranchise.setOnClickListener(onClickEditFButton(rootView));
         bEditFranchise.setText(getResources().getString(R.string.sEdit));
