@@ -29,6 +29,6 @@
     <string name="tsearchAddLocation">There\'s another Franchise at this exact Location</string>
     <string name="tAddSuccess">Franchise successfully added. Please, reload map</string>
     <string name="tRefresh">Map successfully Reloaded!</string>
-    <string name="sRemoveTitulo">Remove Frachises</string>
+    <string name="sRemoveTitulo">Remove Franchises</string>
 
 </resources>

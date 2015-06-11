@@ -11,6 +11,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -189,6 +190,7 @@ public class MainActivity extends ActionBarActivity {
         s = State.REMOVE;
         f4 = new Remove();
         getFragmentManager().beginTransaction().replace(android.R.id.content, f4).commit();
+
         f2.clearMap();
         f2.updateMapMarkers();
     }
