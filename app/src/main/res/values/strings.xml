@@ -11,4 +11,24 @@
     <string name="sEdit">Edit</string>
     <string name="sRemove">Remove</string>
     <string name="sRefresh">Refresh</string>
+    <string name="sAboutInfo">Programed by:\nLuis David Goyes Garcés.\nluis.goyes@udea.edu.co\nElectronic Engineering Student\nUniversidad de Antioquia</string>
+    <string name="sOk">Ok</string>
+
+    <string name="sAddTitulo">Add new franchise</string>
+    <string name="sAddNome">New Franchise Name</string>
+    <string name="sAddNomeHint">Type here the name</string>
+    <string name="sAddLatitude">Franchise\'s Latitude</string>
+    <string name="sAddLatitudeHint">Type here the latitude</string>
+    <string name="sAddLongitude">Franchise\'s Longitude</string>
+    <string name="sAddLongitudeHint">Type here the longitude</string>
+    <string name="sCancel">Cancel</string>
+    <string name="tetAddLong">Insert Longitude value</string>
+    <string name="tetAddLat">Insert Latitude value</string>
+    <string name="tetAddNome">Insert Franchise\'s Name</string>
+    <string name="tsearchAddName">This Franchise Name has already been given.</string>
+    <string name="tsearchAddLocation">There\'s another Franchise at this exact Location</string>
+    <string name="tAddSuccess">Franchise successfully added. Please, reload map</string>
+    <string name="tRefresh">Map successfully Reloaded!</string>
+    <string name="sRemoveTitulo">Remove Frachises</string>
+
 </resources>

@@ -21,4 +21,39 @@
         <item name="android:textSize">40dp</item>
     </style>
 
+    <style name="DataBase">
+        <item name="android:textSize">20dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="DataBase.Titulo">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">60dp</item>
+    </style>
+
+    <style name="DataBase.add">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">30dp</item>
+    </style>
+
+    <style name="DataBase.add.textView">
+        <item name="android:layout_weight">2</item>
+    </style>
+
+    <style name="DataBase.add.editText">
+        <item name="android:layout_weight">3</item>
+        <item name="android:inputType">textPersonName</item>
+    </style>
+
+    <style name="DataBase.add.editText.number">
+        <item name="android:inputType">numberDecimal|numberSigned</item>
+    </style>
+
+    <style name="DataBase.add.button"></style>
+
 </resources>

@@ -1,0 +1,102 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.luisgoyes.doggerapp.Add"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <!-- Titulo -->
+    <TextView
+        style="@style/DataBase.Titulo"
+        android:text="@string/sAddTitulo"/>
+
+    <!-- Nombre de la franquicia -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            style="@style/DataBase.add.textView"
+            android:text="@string/sAddNome"/>
+        <EditText
+            android:id="@+id/AddNome"
+            style="@style/DataBase.add.editText"
+            android:hint="@string/sAddNomeHint"/>
+    </LinearLayout>
+
+    <!-- Latitud -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            style="@style/DataBase.add.textView"
+            android:text="@string/sAddLatitude"/>
+        <EditText
+            android:id="@+id/AddLatitude"
+            style="@style/DataBase.add.editText.number"
+            android:hint="@string/sAddLatitudeHint"/>
+    </LinearLayout>
+
+    <!-- Longitud -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            style="@style/DataBase.add.textView"
+            android:text="@string/sAddLongitude"/>
+        <EditText
+            android:id="@+id/AddLongitude"
+            style="@style/DataBase.add.editText.number"
+            android:hint="@string/sAddLongitudeHint"/>
+    </LinearLayout>
+
+    <!-- Espacio en blanco -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:orientation="vertical">
+    </LinearLayout>
+
+    <!-- Botones -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <!-- Espacio en blanco -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+        </LinearLayout>
+        <!-- Botón de aceptar -->
+        <Button
+            style="@style/DataBase.add.button"
+            android:text="@string/sAdd"
+            android:onClick="addNew"/>
+        <!-- Espacio en blanco -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+        </LinearLayout>
+        <!-- Botón de cancelar -->
+        <Button
+            style="@style/DataBase.add.button"
+            android:text="@string/sCancel"
+            android:onClick="addCancel"/>
+        <!-- Espacio en blanco -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

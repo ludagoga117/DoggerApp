@@ -19,14 +19,25 @@ public class BaseDeDatos {
     public void remove(int i){
         markers.remove(i);
     }
-    public void add(double latitude, double logitude, String nome, String subnome, String icon) {
-        if(search(latitude,logitude)==false) {
+    public boolean add(double latitude, double logitude, String nome, String subnome, String icon) {
+        if((searchByLocation(latitude,logitude)==false)&&(searchByName(nome)==false)) {
             markers.add(new Marcador(latitude, logitude, nome, subnome, icon));
+            return true;
+        }else{
+            return false;
         }
     }
-    private boolean search(double latitude, double longitud){
+    public boolean searchByLocation(double latitude, double longitud){
         for(int i = 0; i<markers.size(); i++){
             if((markers.get(i).getLatitude()==latitude)&&(markers.get(i).getLogitude()==longitud)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean searchByName(String nome){
+        for(int i = 0; i<markers.size(); i++){
+            if((markers.get(i).getNome().compareTo(nome))==0){
                 return true;
             }
         }

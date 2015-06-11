@@ -57,7 +57,7 @@ public class F_mapa extends Fragment {
         // Move the camera instantly to current location
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(la,lo), 14));
     }
-    
+
     @Override
     public void onPause() {
         if (map != null) {
