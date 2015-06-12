@@ -40,10 +40,13 @@ public class Edit extends Fragment {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(rootView.getContext(),Integer.toString(rg.getCheckedRadioButtonId()),Toast.LENGTH_SHORT).show();
-                EditFranchise f = new EditFranchise();
-                f.setID(rg.getCheckedRadioButtonId());
-                getFragmentManager().beginTransaction().replace(android.R.id.content, f).commit();
+                if(rg.getCheckedRadioButtonId()==-1) {
+                    Toast.makeText(rootView.getContext(),getResources().getString(R.string.sAskSelect), Toast.LENGTH_SHORT).show();
+                }else{
+                    EditFranchise f = new EditFranchise();
+                    f.setID(rg.getCheckedRadioButtonId());
+                    getFragmentManager().beginTransaction().replace(android.R.id.content, f).commit();
+                }
             }
         };
     }

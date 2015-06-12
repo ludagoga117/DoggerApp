@@ -34,5 +34,6 @@
     <string name="sEditTitulo">Edit Franchises</string>
     <string name="sEditFTitulo">Edit Franchise</string>
     <string name="tEditSuccess">Franchise Successfully Edited</string>
+    <string name="sAskSelect">No franchise selected. Please, select one from the list!</string>
 
 </resources>

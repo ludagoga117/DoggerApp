@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -16,11 +17,19 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import java.sql.SQLDataException;
+
 
 public class MainActivity extends ActionBarActivity {
+    /*
+    Algunas Ubicaciones Dogger
+    Parque Norte Lat 6.271053 Lng -75.565714
+    Planetario Lat 6.267811 Lng -75.565982
+    Florida Lat 6.27084 Lng -75.577204
+    */
     private final boolean[] opcionPrincipal = {false, false, false, false, true, true, true};
     private boolean[] opcion = opcionPrincipal;
-    private static BaseDeDatos dataBase = new BaseDeDatos();
+    private static DataBaseManager dataBase;
     private static String dogger_marker_tag = ((Integer)(R.mipmap.ic_dogger_marker)).toString();
     public State s;
     public static FragmentManager fragmentManager;
@@ -33,6 +42,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        dataBase = new DataBaseManager(this);
         fragmentManager=getFragmentManager();
         getWindow().getDecorView().setBackgroundColor(Color.BLACK);
         s = State.HOME;
@@ -42,7 +52,7 @@ public class MainActivity extends ActionBarActivity {
         viewPager.setAdapter(adapter);
     }
 
-    public static BaseDeDatos getMasterDataBase(){
+    public static DataBaseManager getMasterDataBase(){
         return dataBase;
     }
 
@@ -241,6 +251,7 @@ public class MainActivity extends ActionBarActivity {
         EditText etAddNome = (EditText) findViewById(R.id.AddNome);
         EditText etAddLat = (EditText) findViewById(R.id.AddLatitude);
         EditText etAddLong = (EditText) findViewById(R.id.AddLongitude);
+
         if( etAddNome.getText().toString().isEmpty() || etAddLat.getText().toString().isEmpty() || etAddLong.getText().toString().isEmpty()){
             if( etAddNome.getText().toString().isEmpty() ) {
                 Toast.makeText(getApplicationContext(),getResources().getString(R.string.tetAddNome),Toast.LENGTH_SHORT).show();
@@ -260,7 +271,7 @@ public class MainActivity extends ActionBarActivity {
                     Toast.makeText(getApplicationContext(),getResources().getString(R.string.tsearchAddLocation),Toast.LENGTH_SHORT).show();
                 }
             }else {
-                dataBase.add(Double.parseDouble(etAddLat.getText().toString()), Double.parseDouble(etAddLong.getText().toString()), etAddNome.getText().toString(), null, dogger_marker_tag);
+                dataBase.add(Double.parseDouble(etAddLat.getText().toString()), Double.parseDouble(etAddLong.getText().toString()), etAddNome.getText().toString(), null, getDogger_marker_tag());
                 Toast.makeText(getApplicationContext(),getResources().getString(R.string.tAddSuccess),Toast.LENGTH_SHORT).show();
                 onBackPressed();
             }
